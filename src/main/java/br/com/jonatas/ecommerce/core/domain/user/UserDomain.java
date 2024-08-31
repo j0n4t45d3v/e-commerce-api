@@ -23,6 +23,26 @@ public class UserDomain {
 		this.birthday = birthday;
 	}
 
+	public UserDomain(
+			Long id,
+			String username,
+			String password,
+			String email,
+			Role role,
+			LocalDate birthday,
+			LocalDateTime createdAt,
+			LocalDateTime updatedAt
+	) {
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		this.role = role;
+		this.birthday = birthday;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+	}
+
 	public UserDomain() {
 	}
 
