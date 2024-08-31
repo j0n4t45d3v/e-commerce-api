@@ -11,4 +11,7 @@ public interface UserRepositoryGateway {
 	Optional<UserDomain> findByEmail(String email);
 	Optional<UserDomain> findById(long l);
 	List<UserDomain> findAll();
+	boolean existsById(long l);
+	void deleteById(long l);
+
 }
