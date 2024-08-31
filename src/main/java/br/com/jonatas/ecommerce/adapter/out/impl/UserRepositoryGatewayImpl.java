@@ -29,4 +29,14 @@ public class UserRepositoryGatewayImpl implements UserRepositoryGateway {
 	public List<UserDomain> findAll() {
 		return List.of();
 	}
+
+	@Override
+	public boolean existsById(long l) {
+		return false;
+	}
+
+	@Override
+	public void deleteById(long l) {
+
+	}
 }
