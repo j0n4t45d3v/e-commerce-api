@@ -15,6 +15,9 @@ public class ProductDomain {
 		this.active = active;
 	}
 
+	public ProductDomain() {
+	}
+
 	public Long getId() {
 		return id;
 	}
