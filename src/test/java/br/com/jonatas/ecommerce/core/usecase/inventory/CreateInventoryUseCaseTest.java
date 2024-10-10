@@ -2,12 +2,9 @@ package br.com.jonatas.ecommerce.core.usecase.inventory;
 
 import br.com.jonatas.ecommerce.core.domain.inventory.InventoryDomain;
 import br.com.jonatas.ecommerce.core.domain.inventory.ProductDomain;
-import br.com.jonatas.ecommerce.core.usecase.user.RegisterUserUseCase;
-import br.com.jonatas.ecommerce.gateway.in.crypto.Crypto;
 import br.com.jonatas.ecommerce.gateway.in.inventory.SearchProductGateway;
 import br.com.jonatas.ecommerce.gateway.in.inventory.dto.CreateInventoryDTO;
 import br.com.jonatas.ecommerce.gateway.out.inventory.InventoryRepositoryGateway;
-import br.com.jonatas.ecommerce.gateway.out.user.UserRepositoryGateway;
 import br.com.jonatas.ecommerce.infra.common.exception.NotFoundException;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -18,7 +15,8 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
