@@ -6,31 +6,21 @@ import br.com.jonatas.ecommerce.gateway.in.user.dto.EditUserDTO;
 import br.com.jonatas.ecommerce.gateway.in.user.dto.RegisterUserDTO;
 import br.com.jonatas.ecommerce.infra.common.http.ResponseErrorV0;
 import br.com.jonatas.ecommerce.infra.common.http.ResponseV0;
-import org.junit.jupiter.api.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.test.web.server.LocalServerPort;
+import br.com.jonatas.ecommerce.integration.BaseIntegrationTest;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
-import org.springframework.test.context.ActiveProfiles;
 
 import java.time.LocalDate;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@ActiveProfiles("test")
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class UserControllerV1IT {
-
-	@Autowired
-	private TestRestTemplate restTemplate;
-	@LocalServerPort
-	private int port;
+class UserControllerV1IT extends BaseIntegrationTest {
 
 	@Test
 	@Order(1)
