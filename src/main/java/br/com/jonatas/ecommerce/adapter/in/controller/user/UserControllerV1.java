@@ -17,13 +17,24 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/v1/users")
-@RequiredArgsConstructor
 public class UserControllerV1 {
 
 	private final RegisterUserGateway registerUserGateway;
 	private final SearchUserGateway searchUserGateway;
 	private final EditUserGateway editUserGateway;
 	private final DeleteUserGateway deleteUserGateway;
+
+	public UserControllerV1(
+		RegisterUserGateway registerUserGateway,
+		SearchUserGateway searchUserGateway,
+		EditUserGateway editUserGateway,
+		DeleteUserGateway deleteUserGateway
+	) {
+		this.registerUserGateway = registerUserGateway;
+		this.searchUserGateway = searchUserGateway;
+		this.editUserGateway = editUserGateway;
+		this.deleteUserGateway = deleteUserGateway;
+	}
 
 	@GetMapping
 	public ResponseEntity<ResponseV0<List<UserDomain>>> getAll() {
@@ -40,7 +51,10 @@ public class UserControllerV1 {
 	}
 
 	@PostMapping("/register")
-	public ResponseEntity<ResponseV0<String>> register(@RequestBody RegisterUserDTO userDTO, UriComponentsBuilder uriComponentsBuilder) {
+	public ResponseEntity<ResponseV0<String>> register(
+		@RequestBody RegisterUserDTO userDTO,
+		UriComponentsBuilder uriComponentsBuilder
+	) {
 		this.registerUserGateway.execute(userDTO);
 		var uri = uriComponentsBuilder.path("/v1/users/{id}").buildAndExpand(1L).toUri();
 		var response = ResponseV0.of(201, "User created successfully");
