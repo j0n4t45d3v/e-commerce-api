@@ -20,7 +20,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class UserControllerV1IT extends BaseIntegrationTest {
+public class UserControllerV1IT extends BaseIntegrationTest {
 
 	@Test
 	@Order(1)
