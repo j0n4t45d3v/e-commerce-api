@@ -28,7 +28,8 @@ public class AddItemInOrderUseCase implements AddItemInOrderGateway {
   @Override
   public Long execute(OrderItemDTO orderItemDTO) {
     this.orderExists(orderItemDTO.idOrder());
-    ProductDomain product = this.searchProductGateway.searchProductById(orderItemDTO.idProduct());
+    ProductDomain product = this.searchProductGateway
+			.searchProductById(orderItemDTO.idProduct());
     OrderItemDomain item = this.getItem(orderItemDTO);
     int quantity = this.getQuantity(orderItemDTO, item);
     item.setTotal(product.getPrice() * quantity);
